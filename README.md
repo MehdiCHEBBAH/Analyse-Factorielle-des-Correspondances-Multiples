@@ -1,9 +1,6 @@
 <h1 class="text-align:center">Analyse Factorielle des Correspondances Multiples</h1>
 
-<div class="page-break"></div>
-[TOC]
 
-<div class="page-break"></div>
 ## Environnement de l’étude
 
 ### Technique:
