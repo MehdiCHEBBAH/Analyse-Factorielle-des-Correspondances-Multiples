@@ -1,5 +1,36 @@
-<h1 class="text-align:center">Analyse Factorielle des Correspondances Multiples</h1>
+<div style="text-align:center;font-size:30px">﷽</div>
 
+
+
+
+
+
+
+
+
+<div>
+<div style="text-align:center;font-size:48px">Multiple Correspondence Analysis</div>
+<div style="text-align:center;font-size:35px">Analyzing a survey like a boss using ACM with R <br/>(In french)
+</div>
+</div>
+
+
+
+
+
+
+
+Fait par **Mehdi CHEBBAH**
+
+---
+
+
+
+# Tableau de Contenu
+
+[TOC]
+
+---
 
 ## Environnement de l’étude
 
@@ -105,7 +136,7 @@ for(i in 1:ncol(X)){
 
 Après l’exécution de ce script le tableau de données sera comme dans le figure si-après:
 
-![](./Rapport.assets/DeepinScreenshot_dde-desktop_20191126203048.png)
+![](./assets/DeepinScreenshot_dde-desktop_20191126203048.png)
 
 
 
@@ -134,7 +165,7 @@ On veut dans un premier temps de savoir en générale l’idée des étudiants s
 
     **le résultat:**
 
-![](./Rapport.assets/DeepinScreenshot_dde-desktop_20191127143002.png)
+![](./assets/DeepinScreenshot_dde-desktop_20191127143002.png)
 
 2.  Visualisation des totales des modalités
 
@@ -146,7 +177,7 @@ On veut dans un premier temps de savoir en générale l’idée des étudiants s
 
     **Le résultat:**
 
-    ![](./Rapport.assets/pie.png)
+    ![](./assets/pie.png)
 
     **L’interprétation:**
 
@@ -181,7 +212,7 @@ ggplot(y1, aes(fill=Reponses, y=Nombre_de_personnes, x=Question)) +
   geom_bar(position="dodge", stat="identity")
 ```
 
-![](Rapport.assets/barplot.png)
+![](assets/barplot.png)
 
 On remarque de ce schéma:
 
@@ -198,7 +229,7 @@ tab_disj = tab.disjonctif.prop(X)
 
 Le resultat
 
-![](Rapport.assets/DeepinScreenshot_dde-desktop_20191128104638.png)
+![](assets/DeepinScreenshot_dde-desktop_20191128104638.png)
 
 <div class="page-break"></div>
 ## V. Analyse approfondie des données
@@ -219,7 +250,7 @@ vals_propres = round(get_eigenvalue(afcm),3)
 
 cette instruction va générer un tableau contenant les valeurs propres et les inertie associés et les inerties cumulés
 
-![](Rapport.assets/DeepinScreenshot_dde-desktop_20191127160608.png)
+![](assets/DeepinScreenshot_dde-desktop_20191127160608.png)
 
 Si on voulez retenir 80% de l'information il faut retenir 7 axes qui est très beaucoup dans notre cas.
 
@@ -233,7 +264,7 @@ fviz_screeplot (afcm, addlabels = TRUE, ylim = c(0, 30))  + geom_hline (yinterce
 
 Le résultat est le suivant
 
-![](Rapport.assets/inertie.png)
+![](assets/inertie.png)
 
 On peut prendre les 3 premiers axes qui représentent ***58.5%*** de l'information.  
 
@@ -245,7 +276,7 @@ fviz_mca_biplot (afcm, repel = TRUE, ggtheme = theme_minimal())
 
 Le résultat de l’exécution de cette commande est:
 
-![](Rapport.assets/biplot.png)
+![](assets/biplot.png)
 
 Dans le graphique ci-dessus, les lignes (individus) sont représentées par des points bleus et des colonnes (variables + modalités) par des triangles rouges.
 
@@ -268,7 +299,7 @@ fviz_mca_var (afcm, choice = "mca.cor",
 
 Le résultat attendue:
 
-![](Rapport.assets/correlation_var.png)
+![](assets/correlation_var.png)
 
 On remarque que les variables ne sont pas vraiment corréler a un axe mais plutôt ils sont reliées aux deux axes au même temps.
 
@@ -281,7 +312,7 @@ V = round(var$coord[,c(1,2,3)], 3)
 
 Le résultat de cette commande est la matrice `V`, tel que `V1` est la projection de la modalité ***B*** de la ***question 1*** sur l'axe 1, etc...
 
-![](Rapport.assets/DeepinScreenshot_dde-desktop_20191127174210.png)
+![](assets/DeepinScreenshot_dde-desktop_20191127174210.png)
 
 Pour faire la représentation des modalités des variables dans le 1er plan principale il faut exécuter le code suivant
 
@@ -291,7 +322,7 @@ fviz_mca_var (afcm,
              ggtheme = theme_minimal ())
 ```
 
-![](./Rapport.assets/les_modalites.png)
+![](./assets/les_modalites.png)
 
 Dans ce plan en remarque la majorité des modalités sont bien représenté (loin du centre de plan), on peut aussi remarquer que les modalités **TB** (**TRES BIEN**) sont bien représenté dans le deuxième axe, contrairement aux modalités **TM** (**TRES MAUVAIS**) qui sont mieux représenté par l'axe 1
 
@@ -305,11 +336,11 @@ COS2 = round(var$cos2[,c(1,2,3)], 3)
 
 On trouve 
 
-![](./Rapport.assets/DeepinScreenshot_dde-desktop_20191127183051.png)
+![](./assets/DeepinScreenshot_dde-desktop_20191127183051.png)
 
-![DeepinScreenshot_dde-desktop_20191127183157](./Rapport.assets/DeepinScreenshot_dde-desktop_20191127183157.png)
+![DeepinScreenshot_dde-desktop_20191127183157](./assets/DeepinScreenshot_dde-desktop_20191127183157.png)
 
-![DeepinScreenshot_dde-desktop_20191127183251](./Rapport.assets/DeepinScreenshot_dde-desktop_20191127183251.png)
+![DeepinScreenshot_dde-desktop_20191127183251](./assets/DeepinScreenshot_dde-desktop_20191127183251.png)
 
 Donc on remarque d’après les contributions relatives que:
 
@@ -337,11 +368,11 @@ fviz_mca_var(afcm, col.var = "cos2",
              axes=c(2,3))
 ```
 
-![cos2_1_var](./Rapport.assets/cos2_1_var.png)
+![cos2_1_var](./assets/cos2_1_var.png)
 
-![](./Rapport.assets/cos2_3_var.png)
+![](./assets/cos2_3_var.png)
 
-![cos2_2_var](./Rapport.assets/cos2_2_var.png)
+![cos2_2_var](./assets/cos2_2_var.png)
 
 Ou bien en utilisant un barplot
 
@@ -351,11 +382,11 @@ fviz_cos2(afcm, choice = "var", axes = 2)
 fviz_cos2(afcm, choice = "var", axes = 3)
 ```
 
-![cos2_dim1](./Rapport.assets/cos2_dim1.png)
+![cos2_dim1](./assets/cos2_dim1.png)
 
-![](./Rapport.assets/cos2_dim2.png)
+![](./assets/cos2_dim2.png)
 
-![cos2_dim3](./Rapport.assets/cos2_dim3.png)
+![cos2_dim3](./assets/cos2_dim3.png)
 
 ###### d. Contribution des variables aux axes:
 
@@ -374,11 +405,11 @@ fviz_contrib (afcm, choice = "var", axes = 2, top = 15)
 fviz_contrib (afcm, choice = "var", axes = 3, top = 15)
 ```
 
-![](./Rapport.assets/cre_dim1.png)
+![](./assets/cre_dim1.png)
 
-![cre_dim2](./Rapport.assets/cre_dim2.png)
+![cre_dim2](./assets/cre_dim2.png)
 
-![](./Rapport.assets/cre_dim3.png)
+![](./assets/cre_dim3.png)
 
 Donc pour savoir les significations des axes il faut voir les signes des variables qui contribuent le plus dans la construction de cette axe
 
@@ -428,9 +459,9 @@ fviz_mca_ind(afcm, col.ind = "cos2",
 
 Le résultat:
 
-![](./Rapport.assets/cos2_indiv.png)
+![](./assets/cos2_indiv.png)
 
-![](./Rapport.assets/ind_3.png)
+![](./assets/ind_3.png)
 
 A partir de figure si-dessus on peut décider que:
 
@@ -448,11 +479,11 @@ fviz_contrib (afcm, choice = "ind", axes = 2, top = 50)
 fviz_contrib (afcm, choice = "ind", axes = 3, top = 50)
 ```
 
-![](./Rapport.assets/cab_1_ind.png)
+![](./assets/cab_1_ind.png)
 
-![cab_2_ind](./Rapport.assets/cab_2_ind.png)
+![cab_2_ind](./assets/cab_2_ind.png)
 
-![cab_3_ind](./Rapport.assets/cab_3_ind.png)
+![cab_3_ind](./assets/cab_3_ind.png)
 
 **Axe 1**
 
@@ -486,7 +517,7 @@ question = var$eta2[,c(1:3)]
 
 Le résultat de cette commande nous donne les coordonnes des question (variables) dans les nouvelles axes
 
-![](./Rapport.assets/DeepinScreenshot_dde-desktop_20191128103742.png)
+![](./assets/DeepinScreenshot_dde-desktop_20191128103742.png)
 
 Les questions les mieux representes sont les questions (*i*) qui ont *|W.alpha(i)| > sqrt(lambda.alpha)*
 
@@ -506,9 +537,9 @@ afc = CA(X1)
 
 Le résultat est le suivant
 
-![](./Rapport.assets/DeepinScreenshot_select-area_20191128102756.png)
+![](./assets/DeepinScreenshot_select-area_20191128102756.png)
 
-![](./Rapport.assets/fcm.png)
+![](./assets/fcm.png)
 
 Les points blues sont les lignes et rouges sont les colonnes.
 
@@ -524,7 +555,7 @@ On remarque que les étudiants qui on répondus par *BIEN* a la premier question
 fviz_screeplot (afc, addlabels = TRUE, ylim = c(0, 70)) + geom_hline (yintercept = 100*1/(ncol(X1)), linetype = 2, color = "red")
 ```
 
-![](./Rapport.assets/vals_propres_AFC.png)
+![](./assets/vals_propres_AFC.png)
 
 Donc on va prendre les 2 premières valeur propres (le premier plan)
 
@@ -543,11 +574,11 @@ fviz_contrib(afc, choice = "col", axes = 2, top = 10)
 
 On trouve 
 
-![cos2_col_afc](./Rapport.assets/cos2_col_afc.png)
+![cos2_col_afc](./assets/cos2_col_afc.png)
 
-![](./Rapport.assets/cre_dim1_afc.png)
+![](./assets/cre_dim1_afc.png)
 
-![cre_dim2_afc](./Rapport.assets/cre_dim2_afc.png)
+![cre_dim2_afc](./assets/cre_dim2_afc.png)
 
 On remarque que l'axe 1 est un **axe d'opposition** il oppose les étudiants qui ont répondues par *TRES MAUVAIS* aux étudiants qui ont répondues par *BIEN*
 
@@ -561,7 +592,7 @@ fviz_ca_row (afc, col.row = "cos2",
              repel = TRUE)
 ```
 
-![](./Rapport.assets/cos2_row_afc.png)
+![](./assets/cos2_row_afc.png)
 
 De ce figure on conclue que les étudiants qui ont rependues par *TRES MAUVAIS* dans la première question ont répondues par *TRES MAUVAIS* a la deuxième question aussi, le même raisonnement pour *TRES BIEN* et pour *BIEN*.
 
