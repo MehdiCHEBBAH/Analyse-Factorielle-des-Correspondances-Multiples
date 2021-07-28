@@ -6,8 +6,6 @@
 
 
 
-
-
 <div>
 <div style="text-align:center;font-size:48px">Multiple Correspondence Analysis</div>
 <div style="text-align:center;font-size:35px">Analyzing a survey like a boss using ACM with R <br/>(In french)
